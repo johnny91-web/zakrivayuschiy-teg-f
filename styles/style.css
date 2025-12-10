@@ -291,6 +291,11 @@ button:hover {
 .brightness {
   filter: brightness(0.7)
 }
+
+.multi-filter {
+filter: opacity(0.9) blur(1px) contrast(2) sepia(0.2);
+}
+
 @media (width > 375px) {
   .floppy-icon {
     block-size: 21px;
