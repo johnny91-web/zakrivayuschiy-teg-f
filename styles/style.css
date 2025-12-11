@@ -13,13 +13,13 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font, 'Inter Regular'), sans-serif;
+  font-family: var(--main-font, 'Inter'), sans-serif;
   font-variation-settings: 'wght' var(--font-weight-main, 410);
   font-size: 18px;
   line-height: 21px;
   background-image:
-    repeating-linear-gradient(to right, #d3d3d3, #d3d3d300 2px),
-    repeating-linear-gradient(to bottom, #d3d3d3, #d3d3d300 2px),
+    repeating-linear-gradient(to right, #d3d3d3 0 2px, #d3d3d300 2px 4px),
+    repeating-linear-gradient(to bottom, #d3d3d3 0 2px, #d3d3d300 2px 4px),
     linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a);
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,14 +27,7 @@
 }
 
 .header {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 100px min-content 100px;
-  align-items: center;
-  justify-items: center;
-}
-
-.header-cover {
+  margin: 100px auto;
   inline-size: var(--block-width);
   padding-block-start: var(--padding-size);
   padding-block-end: var(--padding-size);
@@ -62,6 +55,10 @@
 
 .body {
   padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
 
 .abstract-span {
@@ -71,13 +68,6 @@
 .accent-span {
   display: block;
   align-self: center;
-}
-
-.cardlist {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 50px;
 }
 
 .card {
@@ -105,7 +95,9 @@
 }
 
 .card__cover {
+  object-fit: cover;
   inline-size: 100%;
+  aspect-ratio: 1/1;
 }
 
 .label {
@@ -127,6 +119,7 @@
 @supports (
   (text-stroke: 1px #ffffffa4) or (-webkit-text-stroke: 1px #ffffffa4)
 ) {
+
   .label {
     -webkit-text-stroke: 1px #ffffffa4;
     /* stylelint-disable-next-line property-no-unknown */
@@ -179,7 +172,7 @@
   justify-self: end;
   padding: 0;
   transition: border 0.3s ease;
-  border: 2px solid #00000000;
+  border: 2px solid #0000;
 }
 
 .card__icon-button:focus-visible {
@@ -228,7 +221,7 @@
 }
 
 .dialog::backdrop {
-  background-color: rgb(0, 0, 0, 0.75);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog__floppy-icon {
@@ -270,7 +263,7 @@ button:hover {
 }
 
 .grayscale {
-  filter: grayscale(0.5);
+  filter: grayscale(0.1);
 }
 
 .saturate {
@@ -288,15 +281,17 @@ button:hover {
 .contrast {
   filter: contrast(0.7);
 }
+
 .brightness {
-  filter: brightness(0.7)
+  filter: brightness(0.7);
 }
 
 .multi-filter {
-filter: opacity(0.9) blur(1px) contrast(2) sepia(0.2);
+  filter: opacity(0.9) blur(1px) contrast(2) sepia(0.2);
 }
 
 @media (width > 375px) {
+
   .floppy-icon {
     block-size: 21px;
     inline-size: 21px;
